@@ -28,7 +28,7 @@ func Test_getButch(t *testing.T) {
 		t.Run("", func(t *testing.T) {
 			start := time.Now()
 			wantTime := start.Add(time.Duration(tt.args.n/tt.args.pool) * 100)
-			actualRes := GetBatch(tt.args.n, tt.args.pool)
+			actualRes := getBatch(tt.args.n, tt.args.pool)
 			since := time.Since(start).Milliseconds()
 			assert.WithinDuration(t, wantTime, start.Add(time.Duration(since)), time.Nanosecond*200)
 			assert.ElementsMatch(t, tt.wantRes, actualRes)
@@ -43,5 +43,3 @@ func createRes(v int64) []user {
 	}
 	return res
 }
-
-

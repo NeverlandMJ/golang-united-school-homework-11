@@ -16,7 +16,7 @@ func getOne(id int64) user {
 	return user{ID: id}
 }
 
-func GetBatch(n int64, pool int64) (res result) {
+func getBatch(n int64, pool int64) (res result) {
 	ids := []int64{}
 	for i := int64(0); i < n; i++ {
 		ids = append(ids, i)
@@ -40,4 +40,3 @@ func GetBatch(n int64, pool int64) (res result) {
 	wg.Wait()
 	return res
 }
-
